@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { IMeal } from '@avans-nx-workshop/shared/api';
+import { IMeal, MealSort } from '@avans-nx-workshop/shared/api';
 import { BehaviorSubject } from 'rxjs';
 import { Logger } from '@nestjs/common';
 
@@ -14,6 +14,8 @@ export class MealService {
             description: 'Vega version of the famous spaghetti recipe.',
             isVega: true,
             dateServed: new Date(),
+            cook: 'Chef',
+            sort: MealSort.Breakfast,
         },
     ]);
 
@@ -45,7 +47,7 @@ export class MealService {
             id: `meal-${Math.floor(Math.random() * 10000)}`,
             isVega: false,
             dateServed: new Date(),
-        };
+        } as unknown as IMeal;
         this.meals$.next([...current, newMeal]);
         return newMeal;
     }
