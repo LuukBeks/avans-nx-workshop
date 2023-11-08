@@ -17,6 +17,15 @@ export class MealService {
             cook: 'Chef',
             sort: MealSort.Breakfast,
         },
+        {
+            id: '1',
+            title: 'Spaghetti con carne',
+            description: 'Vega version of the famous spaghetti recipe.',
+            isVega: true,
+            dateServed: new Date(),
+            cook: 'Johan',
+            sort: MealSort.Breakfast,
+        }
     ]);
 
     getAll(): IMeal[] {
